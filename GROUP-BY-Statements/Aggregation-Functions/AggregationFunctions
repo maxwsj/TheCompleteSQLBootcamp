@@ -1,0 +1,10 @@
+SELECT MIN(replacement_cost) FROM film;
+
+SELECT MAX(replacement_cost) FROM film;
+
+SELECT MIN(replacement_cost), MAX(replacement_cost) FROM film;
+
+SELECT AVG(replacement_cost) FROM film; -- 19.9840000000000000
+
+-- Rouding
+SELECT SUM(replacement_cost) FROM film;

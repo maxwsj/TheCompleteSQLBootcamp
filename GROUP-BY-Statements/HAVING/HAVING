@@ -1,0 +1,18 @@
+-- We could do like this:
+SELECT customer_id, SUM(amount) 
+FROM payment
+WHERE customer_id NOT IN (184,87,477) -- List of Values
+GROUP BY customer_id;
+
+-- But we cannot filter into the SUM(amount), because it happen only when the GROUP BY starts
+-- That's where we use the HAVING:
+SELECT customer_id, SUM(amount) 
+FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > 200;
+
+-- If we wanted to know the number of customers per store
+SELECT store_id, COUNT(*) 
+FROM customer
+GROUP BY store_id
+HAVING COUNT(*) > 200;

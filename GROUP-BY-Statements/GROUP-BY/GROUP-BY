@@ -1,0 +1,31 @@
+SELECT customer_id FROM payment
+GROUP BY customer_id
+ORDER BY customer_id;
+
+-- In which situation could we use this ?
+-- Let's suppose we wanted to asnwer the question: What customer is spengind the most money in total ?
+SELECT customer_id, SUM(amount) FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC;
+
+-- How many transactions there are having ?
+SELECT customer_id, COUNT(amount) FROM payment
+GROUP BY customer_id
+ORDER BY COUNT(amount) DESC;
+
+-- The total amount spent per staff
+SELECT customer_id, staff_id, SUM(amount) FROM payment
+GROUP BY staff_id, customer_id;
+
+SELECT customer_id, staff_id, SUM(amount) FROM payment
+GROUP BY staff_id, customer_id
+ORDER BY customer_id; -- Now we can see how much eaach customer spent with eacah staff member.
+
+-- GROUP BY DATE
+SELECT DATE(payment_date) FROM payment
+GROUP BY DATE(payment_date);
+
+-- And if we wanted to know how much is being processed by day ?
+SELECT DATE(payment_date), SUM(amount) FROM payment
+GROUP BY DATE(payment_date)
+ORDER BY SUM (amount) DESC;
