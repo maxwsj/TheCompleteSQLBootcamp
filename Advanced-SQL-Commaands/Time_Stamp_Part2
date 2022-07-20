@@ -1,0 +1,23 @@
+SELECT EXTRACT(YEAR FROM payment_date) 
+FROM payment;
+
+-- COMMON USED WITH AS
+SELECT EXTRACT(YEAR FROM payment_date) 
+AS year
+FROM payment;
+
+-- MONTH
+SELECT EXTRACT(MONTH FROM payment_date) 
+AS pay_month
+FROM payment;
+
+SELECT EXTRACT(QUARTER FROM payment_date) 
+AS pay_month
+FROM payment;
+
+-- How to check how old a particular timestamp date was in regards to our current date.
+SELECT AGE(payment_date)
+FROM payment;
+
+SELECT TO_CHAR(payment_date, 'month-YYYY')
+FROM payment;
