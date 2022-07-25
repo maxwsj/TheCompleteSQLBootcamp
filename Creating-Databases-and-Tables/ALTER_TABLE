@@ -1,0 +1,27 @@
+CREATE TABLE information(
+    info_id SERIAL PRIMARY KEY,
+    title VARCHAR(500) NOT NULL,
+    person VARCHAR(50) NOT NULL UNIQUE
+);
+
+SELECT * FROM information;
+
+-- Renaming the table
+ALTER TABLE information 
+RENAME TO new_info;
+
+SELECT * FROM new_info;
+
+-- Renaming the column
+ALTER TABLE new_info 
+RENAME COLUMN person TO people;
+
+SELECT * FROM new_info;
+
+-- Alter constraints that already exists in certain column
+ALTER TABLE new_info 
+ALTER COLUMN people DROP NOT NULL;
+
+SELECT * FROM new_info;
+
+
